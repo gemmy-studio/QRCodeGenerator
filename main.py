@@ -8,21 +8,6 @@ button = """
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="woojae" data-description="Support me on Buy me a coffee!" data-message="방문해주셔서 감사합니다 :)" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 """
 
-html(button, height=600, width=400)
-
-st.markdown(
-    """
-    <style>
-        iframe[width="400"] {
-            position: fixed;
-            bottom: 60px;
-            right: 40px;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 def to_svg_str(qr: QrCode, border: int) -> str:
 	"""Returns a string of SVG code for an image depicting the given QR Code, with the given number
 	of border modules. The string always uses Unix newlines (\n), regardless of the platform."""
@@ -61,3 +46,18 @@ if st.button('생성하기'):
             file_name="qrcode.svg",
             mime="image/svg"
         )
+
+html(button, height=600, width=400)
+
+st.markdown(
+    """
+    <style>
+        iframe[width="400"] {
+            position: fixed;
+            bottom: 60px;
+            right: 40px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
